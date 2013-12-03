@@ -1,0 +1,122 @@
+\documentclass{proc}
+
+\usepackage{edbkps}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{subfig}
+%%\usepackage[lined,boxed,commentsnumbered, linesnumbered]{algorithm2e}
+
+
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{0}
+\let\footnote\savefootnote
+\let\footnotetext\savefootnotetext
+\let\footnoterule\savefootnoterule
+\normallatexbib
+\makeatletter
+\renewcommand{\@ptsize}{0}
+\makeatother
+
+%%%%%
+%% If you use a font encoding package, please enter it here, i.e.,
+\usepackage{t1enc}
+
+
+%%%%%
+% Style for inserting .eps files and rotating illustrations or tables
+
+% possible options for graphicx:
+% [dvips], [xdvi], [dvipdf], [dvipsone], [dviwindo], [emtex], [dviwin],
+% [pctexps],  [pctexwin],  [pctexhp],  [pctex32], [truetex], [tcidvi],
+% [oztex], [textures]
+
+\usepackage[dvips]{graphicx}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{amsmath}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+\articletitle[Decomposição Lagrangeana]
+{Decomposição Lagrangeana}
+
+\author{João C. Abreu\altaffilmark{1}}
+
+\altaffiltext{1}{Universidade Federal de Minas Gerais, DCC, \\
+Avenida Antônio Carlos 6627, Belo Horizonte, Brazil,\\
+\email{joao.junior@dcc.ufmg.br}}
+
+\anxx{João C. Abreu Jr.,Universidade Federal de Minas Gerais\,
+Avenida Antônio Carlos 6627\, Belo Horizonte\, Brasil\,
+\emailfont{joao.junior@dcc.ufmg.br}}
+
+\begin{abstract}
+Esse relatório apresenta a decomposição lagrangeana e o algoritmo do volume para resolver um problema proposto.
+
+\end{abstract}
+
+\begin{keywords}
+\inx{Decomposição Lagrangeana}, \inx{Método do Volume}
+\end{keywords}
+
+\doublespacing
+
+\section{Introdução}
+\label{sec:intro}
+O Problema composto pela função objetivo \eqref{eq:objetivoa} e as restrições \eqref{eq:arvore}-\eqref{eq:binaria},
+onde as restrições \eqref{eq:arvore}-\eqref{eq:arvore2} formam uma árvore, e a restrição \eqref{eq:grau} representa
+a quantidade máxima de arestas escolhidas incidentes a um nó $i \in V$,
+\begin{align}
+    & min \sum_{e \in E} c_ex_e \label{eq:objetivoa} \\
+    & \text{Sujeito à:} \nonumber \\
+    & \sum_{e \in E} =  n - 1 \label{eq:arvore} \\
+    & t_i - t_j + |V|x_{ij} \le |V| - 1 \textrm{,} \forall (i,j) \in E \label{eq:arvore1} \\
+    & 0 \le t_i \le |V| \textrm{,} \forall i \in V \label{eq:arvore2} \\
+    & \sum_{e \in \delta(i)} x_e \le b_i \textrm{,} \forall i \in V \label{eq:grau} \\
+    & x_e \in \{0, 1\} \label{eq:binaria}
+\end{align}
+
+Pode ser decomposto como:
+\begin{align}
+    & min \frac{1}{2}\sum_{e \in E} c_ez_e +  \frac{1}{2}\sum_{e \in E} c_ev_e\label{eq:objetivodecomposto}  \\
+    & \text{Sujeito à:} \nonumber \\
+    & z \in T \label{eq:arvored} \\
+    & v \in M \label{eq:matchingd} \\
+    & z = v \label{eq:ma} \\
+    & (z,v) \in \{0,1\}^{2m} \label{eq:2m}
+\end{align}
+Associando multiplicadores de lagrange $\pi$ a restrição \eqref{eq:ma}, teremos o seguinte problema de lagrange a ser resolvido:
+\begin{align}
+    & \theta(\pi) = min \frac{1}{2}\sum_{e \in E} c_ez_e +  \frac{1}{2}\sum_{e \in E} c_ev_e + \sum_{e \in E} \pi(z_e - v_e) \label{eq:objetivodecomposto1}  \\
+    & \text{Sujeito à:} \nonumber \\
+    & z \in T \label{eq:arvored1} \\
+    & v \in M \label{eq:matchingd1} \\
+    & (z,v) \in \{0,1\}^{2m} \label{eq:2m1}
+\end{align}
+
+\input{algoritmo.tex}
+
+\input{experimentos.tex}
+Todo código fonte produzido por esse trabalho pode ser obtido no endereço eletrônico: $https://github.com/joaojunior/decomposicao\_lagrangeana$
+
+
+\bibliographystyle{plain}
+%chapbblname{tp}  % The name of the .bbl file, what is normally the name of your .tex file.
+\bibliography{tp} %\chapbibliography{gow}
+
+\end{document}
+
+
+
+
+
+% LocalWords:  comeca ij kj ji lll hardcoded eq ranqueamento recuperável RRSP
+% LocalWords:  Recuperável Rent Minmax Regret Single Pair MSP SPP Cplex

@@ -1,0 +1,15 @@
+instances/tb1ct100_1.txt 2722.0 4.012
+instances/tb1ct100_2.txt 2808.0 3.924
+instances/tb1ct100_3.txt 2958.0 4.004
+instances/tb1ct200_1.txt 4353.0 58.204
+instances/tb1ct200_2.txt 4544.0 58.136
+instances/tb1ct200_3.txt 4741.0 58.288
+instances/tb1ct300_1.txt 5456.0 340.6
+instances/tb1ct300_2.txt 5713.0 338.768
+instances/tb1ct300_3.txt 5114.0 336.544
+instances/tb1ct400_1.txt 6232.0 1302.728
+instances/tb1ct400_2.txt 6458.0 1289.876
+instances/tb1ct400_3.txt 6148.0 1285.12
+instances/tb2ct500_1.txt 6725.0 3105.336
+instances/tb2ct500_2.txt 6702.0 3111.46
+instances/tb2ct500_3.txt 6928.0 3103.928

@@ -1,0 +1,52 @@
+\section{Experimentos Computacionais}\label{sec:experimentos} 
+Os experimentos computacionais foram executados em uma máquina Intel Dual-Core de 2.81 GHz de clock e
+2GB de memória RAM, rodando o sistema operacional Linux. O modelo matemático composto pela função objetivo \eqref{eq:objetivodecomposto} e
+as restrições \eqref{eq:arvored}-\eqref{eq:2m} foi implementado
+no Ilog CPLEX 12.5.1 e o algoritmo da seção \ref{sec:algoritmo} foi implementado
+em Python 2.7, sendo que o otimizador utilizado para resolver o problema lagrangeano $\theta (\pi)$ presente nesse algoritmo foi o Ilog CPLEX 12.5.1.
+As instâncias de testes utiizadas são denominadas ANDINST e foram propostas em \cite{Andrade06}.
+
+No experimento desse trabalho foi comparado a performance do modelo matemático composto pela função objetivo \eqref{eq:objetivodecomposto} e
+as restrições \eqref{eq:arvored}-\eqref{eq:2m} que será 
+chamado aqui de $IP$, com o algoritmo proposto na seção \ref{sec:algoritmo}, que será chamado $Volume$.
+O modelo $IP$ foi executado através do CPLEX com todos os parâmetros default. O modelo presente no algoritmo $Volume$
+foi executado pelo CPLEX também com os valores default. O algoritmo $Volume$ foi executado com os parâmetros 
+$f = 0.01$, com um número máximo de iterações igual a 500000. O modelo $IP$ e o algoritmo $Volume$ foram executados com um tempo de execução máximo de 7200 segundos. \\ 
+
+A tabela \ref{table:resultados4e6} apresenta os resultados obtidos para o conjuntos de instância de testes. Nessa tabela a
+coluna 1 mostra o nome da instância de teste, as colunas 2 e 3 são resultados referentes ao modelo $IP$ e as colunas
+4,5 e 6 são resultados referentes ao algoritmo $Volume$. A coluna 2 apresenta o custo da solução obtido pela
+modelo $IP$ e a coluna 3 apresenta o tempo consumido para encontrar essa solução. A coluna 4 apresenta o custo da solução 
+obtido pelo algoritmo $Volume$, a coluna 5 traz o número de iterações do algoritmo
+e a coluna 6 mostra o tempo consumido pelo algoritmo $Volume$.\\
+Para todas as instâncias o CPLEX conseguiu encontrar soluções ótimas, conforme
+pode ser observado pela coluna 2 da tabela \ref{table:resultados4e6}. O algoritmo
+$Volume$ não conseguiu encontrar uma solução ótima ou próxima da ótima para nenhuma dessas instâncias, conforme
+pode ser observado na coluna 4 da tabela \ref{table:resultados4e6}.
+
+\begin{table}[htbp]
+\begin{center}
+  \begin{tabular}{|c|r|r|r|r|r|}
+    \hline
+      Instância & \multicolumn{2}{|c|}{$IP$} & \multicolumn{3}{|c|}{$Volume$}\\
+                & Custo Solução    & Tempo(s)  & Custo Solução &Iterações & Tempo(s)      \\ \hline
+        tb1ct100\_1 & 2722 & 4.01 & 2384.67 & 334 & 1340.68 \\ \hline
+        tb1ct100\_2 & 2808 & 3.92 & 2408.08 & 275 & 1122.68 \\ \hline
+        tb1ct100\_3 & 2958 & 4.00 & 2428.90 & 215 & 866.78 \\ \hline
+        tb1ct200\_1 & 4353 & 58.20 & 3871.71 & 335 & 7200.00 \\ \hline
+        tb1ct200\_2 & 4544 & 58.14 & 3851.35 & 219 & 7200.00 \\ \hline
+        tb1ct200\_3 & 4741 & 58.29 & 4050.24 & 335 & 7200.00 \\ \hline
+        tb1ct300\_1 & 5456 & 340.60 & 3572.75 & 43 & 7200.00 \\ \hline
+        tb1ct300\_2 & 5713 & 338.77 & 3631.13 & 42 & 7200.00 \\ \hline
+        tb1ct300\_3 & 5114 & 336.54 & 3222.22 & 42 & 7200.00 \\ \hline
+        tb1ct400\_1 & 6232 & 1302.72 & 3426.63 & 13 & 7200.00 \\ \hline
+        tb1ct400\_2 & 6458 & 1289.88 & 3450.62 & 13 & 7200.00 \\ \hline
+        tb1ct400\_3 & 6148 & 1285.12 & 3244.81 & 13 & 7200.00 \\ \hline
+        tb2ct500\_1 & 6725 & 3105.34 & 3450.36 & 5 & 7200.00 \\ \hline
+        tb2ct500\_2 & 6702 & 3111.46 & 3310.76 & 5 & 7200.00 \\ \hline
+        tb2ct500\_3 & 6928 & 3103.93 & 3367.94 & 5 & 7200.00 \\ \hline
+  \end{tabular}
+\caption{Comparação entre os custos da solução e tempos obtidos entre o modelo $IP$ e o algoritmo $Volume$}
+\label{table:resultados4e6}
+\end{center}
+\end{table}

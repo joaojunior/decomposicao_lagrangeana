@@ -1,0 +1,26 @@
+\documentclass[a4paper]{article}
+\usepackage{graphicx}
+% Todos os paragrafos sem identacao
+\setlength\parindent{0pt}
+\pagestyle{empty}
+\usepackage[utf8]{inputenc}
+\usepackage[lined,boxed,commentsnumbered, linesnumbered, portuguese]{algorithm2e}
+
+\begin{document}
+\begin{algorithm}
+\Inicio{ \nonumber
+        Passo0: Dado um multiplicador $\pi$ inicial, resolva o problema lagrangeano $a = \theta(\pi)$ e
+        obtenha $z$ e $v$. Faça $z_0 = z$, $v_0 = v$ e $t = 1$. \\
+        Passo1: Calcule $v_t = z - v$ e $\pi_t = \pi + sv_t$. Resolva o problema 
+        lagrangeano $a_t = \theta(\pi_t)$, sendo $v^t$ e $z^t$ as soluções obtidas\\
+        Passo2: 
+        \If{$a_t > a$}{
+            $\pi = \pi_t$ \\
+            $a = a_t$
+        }
+        $t = t + 1$ e vá para o passo 1\\
+        Sendo:\\
+        $s = f\frac{UB-a}{||v||^2}$
+}            
+\end{algorithm}
+\end{document} 

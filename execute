@@ -1,0 +1,9 @@
+python main.py instances/tb1ct300_1.txt 5456 >> result_volume.txt
+python main.py instances/tb1ct300_2.txt 5713 >> result_volume.txt
+python main.py instances/tb1ct300_3.txt 5114 >> result_volume.txt
+python main.py instances/tb1ct400_1.txt 6232 >> result_volume.txt
+python main.py instances/tb1ct400_2.txt 6458 >> result_volume.txt
+python main.py instances/tb1ct400_3.txt 6148 >> result_volume.txt
+python main.py instances/tb2ct500_1.txt 6725 >> result_volume.txt
+python main.py instances/tb2ct500_2.txt 6702 >> result_volume.txt
+python main.py instances/tb2ct500_3.txt 6928 >> result_volume.txt

@@ -1,0 +1,13 @@
+\begin{thebibliography}{10}
+
+\bibitem{Barahona91}
+Barahona, Francisco
+\newblock The volume algorithm: producing primal solutions with a subgradient method.
+\newblock {\em Mathematical Programming}, 87(3):385–399, 1991.
+
+\bibitem{Andrade06}
+R. Andrade, A. Lucena, and N. Maculan.
+\newblock Using Lagrangian dual information to generate degree constrained spanning trees.
+\newblock {\em Discrete Applied Mathematics}, 154(5):703–717, 2006.
+
+\end{thebibliography}
